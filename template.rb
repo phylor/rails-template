@@ -1,6 +1,7 @@
 run 'echo 2.6.3 > .ruby-version'
 
 gem 'bootstrap'
+gem 'cancancan'
 gem 'devise'
 gem 'haml'
 gem 'haml-rails'
@@ -70,8 +71,11 @@ end
 run 'html2haml app/views/layouts/application.html.erb >> app/views/layouts/application.html.haml'
 remove_file 'app/views/layouts/application.html.erb'
 
-rails_command 'db:create'
-rails_command 'db:migrate'
+rails_command 'db:prepare'
+
+# cancancan
+
+generate 'cancan:ability'
 
 after_bundle do
   git :init
