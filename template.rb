@@ -1,3 +1,5 @@
+run 'echo 2.6.3 > .ruby-version'
+
 gem 'bootstrap'
 gem 'devise'
 gem 'haml'
