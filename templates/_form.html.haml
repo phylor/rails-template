@@ -1,0 +1,7 @@
+= simple_form_for @<%= singular_table_name %> do |f|
+<%- attributes.each.with_index do |attribute, index| -%>
+  = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %><%= index == 0 ? ', autofocus: true' : '' %>
+<%- end -%>
+
+  = link_to t("actions.cancel"), @<%= singular_table_name %>.new_record? ? <%= plural_table_name %>_path : <%= singular_table_name %>_path(@<%= singular_table_name %>), class: "button"
+  = f.submit

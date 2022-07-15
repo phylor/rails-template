@@ -1,0 +1,8 @@
+= title_with_actions @<%= singular_table_name %>.name do
+  = link_to t('actions.edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'button primary'
+
+.grid.grid-cols-2
+<%- attributes.each do |attribute| %>
+  = <%= singular_table_name.titleize.gsub(/\s/, '') %>.human_attribute_name(:<%= attribute.name %>)
+  = @<%= singular_table_name %>.<%= attribute.name %>
+<% end %>
