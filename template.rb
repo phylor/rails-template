@@ -79,6 +79,8 @@ generate "cancan:ability"
 
 inject_into_file "app/models/ability.rb", "    alias_action :create, :read, :update, :destroy, to: :crud", after: "def initialize(user)"
 
+rails_command "tailwindcss:install"
+
 after_bundle do
   git :init
   git add: "."
