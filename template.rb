@@ -52,7 +52,7 @@ inject_into_file "app/controllers/application_controller.rb", before: "end" do
 end
 
 inject_into_file "config/application.rb", before: "  end" do
-  %(config.generators do |g|
+  %(    config.generators do |g|
       g.template_engine :haml
     end\n)
 end
